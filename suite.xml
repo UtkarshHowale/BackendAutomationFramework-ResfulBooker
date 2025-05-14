@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="API Test Suite">
+  <test thread-count="5" name="API Test Cases">
+    <classes>
+      <class name="com.api.tests.UpdateBooking_API"/>
+      <class name="com.api.tests.CreateBooking_API"/>
+      <class name="com.api.tests.Ping_API"/>
+      <class name="com.api.tests.GetBooking_API"/>
+      <class name="com.api.tests.DeleteBooking_API"/>
+      <class name="com.api.tests.CreateToken_API"/>
+      <class name="com.api.tests.CRUD_Flow_Automation"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
