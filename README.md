@@ -1,6 +1,6 @@
 # 🧪 Backend API Automation Framework - Restful Booker
 
-This is a backend API automation framework designed for testing the [Restful Booker API](https://restful-booker.herokuapp.com/) using **Java**, **Rest Assured**, and **TestNG**. It follows the **Service Object Model (SOM)** design pattern for clean separation of concerns, scalability, and easy maintenance.
+This is a backend API automation framework designed for testing the [Restful Booker API](https://restful-booker.herokuapp.com/apidoc/index.html) using **Java**, **Rest Assured**, and **TestNG**. It follows the **Service Object Model (SOM)** design pattern for clean separation of concerns, scalability, and easy maintenance.
 
 ---
 
