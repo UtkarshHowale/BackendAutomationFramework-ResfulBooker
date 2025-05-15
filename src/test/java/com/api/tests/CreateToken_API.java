@@ -11,7 +11,7 @@ import com.api.services.AuthService;
 
 import io.restassured.response.Response;
 
-@Listeners(com.api.listeners.TestListener.class)
+@Listeners(com.api.filters.TestListener.class)
 public class CreateToken_API {
 
 	@Test(description = "Verify create token API is working fine.")

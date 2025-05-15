@@ -2,7 +2,10 @@ package com.api.services;
 
 import static io.restassured.RestAssured.*;
 
-import com.api.filters.LoggingFilters;
+import com.api.listeners.LoggingFilters;
+
+import static com.constants.Environments.*;
+import static com.utilities.PropertiesUtil.*;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -11,7 +14,7 @@ import io.restassured.specification.RequestSpecification;
 
 public class BaseService {
 
-	private static final String BASE_URL = "https://restful-booker.herokuapp.com/";
+	private static final String BASE_URL = readProperty(PROD, "BASE_URL");
 	private RequestSpecification requestSpecification;
 	
 	static {

@@ -1,9 +1,7 @@
-package com.api.filters;
+package com.api.listeners;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import com.api.listeners.TestListener;
 
 import io.restassured.filter.Filter;
 import io.restassured.filter.FilterContext;

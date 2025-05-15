@@ -7,7 +7,7 @@ import com.api.services.PingService;
 
 import io.restassured.response.Response;
 
-@Listeners(com.api.listeners.TestListener.class)
+@Listeners(com.api.filters.TestListener.class)
 public class Ping_API {
 
 	@Test
