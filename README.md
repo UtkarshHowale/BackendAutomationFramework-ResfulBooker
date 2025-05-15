@@ -58,7 +58,16 @@ This is a backend API automation framework designed for testing the [Restful Boo
 - Maven installed
 - IDE like IntelliJ or Eclipse
 
+---
+
 # Run suite
 mvn clean test -Dsuite=suite
+
+---
+
+# Test Results
+
+![image](https://github.com/user-attachments/assets/fe7cb6cc-cb7f-46a1-a0cb-6727b059e41d)
+
 
 
