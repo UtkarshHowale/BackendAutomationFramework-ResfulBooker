@@ -27,7 +27,7 @@ public class CreateToken_API {
 		System.out.println(response.asPrettyString());
 		System.out.println(tokenResponse.getToken());
 
-		assertEquals(response.statusCode(), 500);
+		assertEquals(response.statusCode(), 200);
 		assertTrue(tokenResponse.getToken() != null);
 
 	}
