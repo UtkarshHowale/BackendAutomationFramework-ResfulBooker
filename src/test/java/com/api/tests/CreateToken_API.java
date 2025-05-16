@@ -1,5 +1,6 @@
 package com.api.tests;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 import org.testng.annotations.Listeners;
@@ -26,6 +27,7 @@ public class CreateToken_API {
 		System.out.println(response.asPrettyString());
 		System.out.println(tokenResponse.getToken());
 
+		assertEquals(response.statusCode(), 500);
 		assertTrue(tokenResponse.getToken() != null);
 
 	}
