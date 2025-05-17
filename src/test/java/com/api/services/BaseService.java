@@ -3,6 +3,7 @@ package com.api.services;
 import static io.restassured.RestAssured.*;
 
 import com.api.listeners.LoggingFilters;
+import com.constants.Environments;
 
 import static com.constants.Environments.*;
 import static com.utilities.PropertiesUtil.*;
@@ -14,12 +15,16 @@ import io.restassured.specification.RequestSpecification;
 
 public class BaseService {
 
-	private static final String BASE_URL = readProperty(PROD, "BASE_URL");
+	private static final String BASE_URL;
 	private RequestSpecification requestSpecification;
-	
+
 	static {
-		
+
 		RestAssured.filters(new LoggingFilters());
+
+		String envFromSystem = System.getProperty("env", "PROD").toUpperCase();
+		Environments env = Environments.valueOf(envFromSystem);
+		BASE_URL = readProperty(env, "BASE_URL");
 	}
 
 	public BaseService() {
