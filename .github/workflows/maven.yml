@@ -49,3 +49,21 @@ jobs:
         name: TestNG Results
         path: target/surefire-reports/junitreports/TEST-*.xml
         reporter: java-junit   
+
+    - name: Copy Report to gh-pages Folder
+      if: always()
+      run: |
+        mkdir -p public/extent-reports
+        cp -R ExtentReport.html public/extent-reports/
+        ls -l  
+
+    - name: Deploy 🚀
+      if: always()
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: public/extent-reports/
+        token: ${{ secrets.API_AUTOMATION_SECRETKEY }}
+        clean: true    
+
+    - name: Test Execution Status
+      run: echo "Test Execution Completed"   
