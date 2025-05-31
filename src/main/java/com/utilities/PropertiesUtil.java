@@ -33,24 +33,24 @@ public class PropertiesUtil {
 	}
 
 	public static String readProperty(String propertyName) {
+		// Read the environment from system property (-Denv=prod/stage)
+		String envName = System.getProperty("env", "stage").toUpperCase(); // default to stage
+		Environments env = Environments.valueOf(envName);
 
-		System.out.println(System.getProperty("user.dir"));
-		File file = new File(System.getProperty("user.dir") + "//config//DATA.properties");
-		FileReader fileReader = null;
+		String filePath = System.getProperty("user.dir") + "//config//" + env.name().toLowerCase() + ".properties";
 		Properties properties = new Properties();
-		try {
-			fileReader = new FileReader(file);
+
+		try (FileReader fileReader = new FileReader(filePath)) {
 			properties.load(fileReader);
 		} catch (FileNotFoundException e) {
-
+			System.err.println("Property file not found for env: " + env);
 			e.printStackTrace();
 		} catch (IOException e) {
-
+			System.err.println("Error reading property file for env: " + env);
 			e.printStackTrace();
 		}
 
-		String value = properties.getProperty(propertyName.toUpperCase());
-		return value;
-
+		return properties.getProperty(propertyName.toLowerCase());
 	}
+
 }

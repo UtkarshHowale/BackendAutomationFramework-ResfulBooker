@@ -15,7 +15,8 @@ public class ExtentManager {
 
 	public synchronized static ExtentReports getExtentReports() {
 		if (extentReports == null) {
-			ExtentSparkReporter sparkReporter = new ExtentSparkReporter("test-output/ExtentReport.html");
+			ExtentSparkReporter sparkReporter = new ExtentSparkReporter(
+					System.getProperty("user.dir") + "//ExtentReport.html");
 
 			sparkReporter.config().setReportName("API Automation Test Report");
 			sparkReporter.config().setDocumentTitle("Automation Test Results");

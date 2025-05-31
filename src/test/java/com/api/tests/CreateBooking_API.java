@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import com.api.models.requests.BookingRequest;
 import com.api.models.response.BookingResponse;
 import com.api.services.BookingService;
+import static com.utilities.PropertiesUtil.*;
 
 import io.restassured.response.Response;
 
@@ -15,9 +16,9 @@ public class CreateBooking_API {
 	@Test
 	public void testCreateBookingAPI() {
 
-		BookingRequest createBookingRequest = new BookingRequest.Builder().firstName("Utkarsh").lastName("Test")
-				.totalPrice(55000).depositePaid(true).bookingDates("2025-05-10", "2025-05-12").additionalNeeds("Food")
-				.Build();
+		BookingRequest createBookingRequest = new BookingRequest.Builder().firstName(readProperty("FIRST_NAME"))
+				.lastName(readProperty("LAST_NAME")).totalPrice(55000).depositePaid(true)
+				.bookingDates("2025-05-10", "2025-05-12").additionalNeeds("Food").Build();
 
 		BookingService bookingService = new BookingService();
 		Response response = bookingService.createBooking(createBookingRequest);
