@@ -40,6 +40,13 @@ jobs:
         name: Logs-${{ matrix.env }}
         path: logs/
 
+    - name: Upload Test HTML Report as Artifact
+      if: always()
+      uses: actions/upload-artifact@v4.6.1
+      with:
+         name: Test Report
+         path: report.html     
+
     - name: Publish Test Report (${{ matrix.env }})
       if: always()
       uses: dorny/test-reporter@v1
